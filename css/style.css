@@ -16,25 +16,25 @@ h1 {
 
 #images img {
     display: block;
-    height: 100px;
+    height: 300px;
     width: auto;
     margin: 20px;
 }
 
-#songs p {
+#tvs p {
     font-size: 18px;
     height: 100px;
     font-weight: bold;
     margin: 20px;
 }
 
-#artists p {
+#platforms p {
     font-size: 18px;
     height: 100px;
     margin: 20px;
 }
 
-#lengths p {
+#episodes p {
     font-size: 16px;
     height: 100px;
     margin: 20px;

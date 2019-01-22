@@ -1,7 +1,7 @@
 /* global $ */
 
 // BELOW Update the songs array with four of your favorites songs.
-var image = ["https://m.media-amazon.com/images/M/MV5BNGE2ZmFkZTYtNjRiOS00ZjE3LThjOWMtZTViZjRmNDFjNTQwXkEyXkFqcGdeQXVyNjg4NzAyOTA@._V1_.jpg","https://m.media-amazon.com/images/M/MV5BMTgzNjAzMDE0NF5BMl5BanBnXkFtZTcwNTEyMzM3OA@@._V1_.jpg", "https://resizing.flixster.com/PKPFvfJ9zWU_4izSQeFLplnXlwM=/206x305/v1.dDsyNTI1MTY7ajsxNzkxMjsxMjAwOzIyMDA7MzMwMA","https://m.media-amazon.com/images/M/MV5BODcwOTg2MDE3NF5BMl5BanBnXkFtZTgwNTUyNTY1NjM@._V1_.jpg"]
+var image = ["https://m.media-amazon.com/images/M/MV5BNGE2ZmFkZTYtNjRiOS00ZjE3LThjOWMtZTViZjRmNDFjNTQwXkEyXkFqcGdeQXVyNjg4NzAyOTA@._V1_.jpg","https://m.media-amazon.com/images/M/MV5BMTgzNjAzMDE0NF5BMl5BanBnXkFtZTcwNTEyMzM3OA@@._V1_.jpg", "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/The_Blacklist_season_5_poster.jpg/220px-The_Blacklist_season_5_poster.jpg","https://m.media-amazon.com/images/M/MV5BODcwOTg2MDE3NF5BMl5BanBnXkFtZTgwNTUyNTY1NjM@._V1_.jpg"]
 var tv = ["Criminal Minds", "The Office", "The Blacklist", "Daredevil"];
 var platform = ["Netflix","Netflix","Netflix","Netflix"]
 var episodeNumbers = [313, 188, 127, 39]
@@ -17,7 +17,6 @@ var IMDb = ["https://www.imdb.com/title/tt0452046/?ref_=nv_sr_1", "https://www.i
 tv.forEach(function(tvList){
     $("#tvs").append("<p>" + tvList + "</p>");
     });
-
 image.forEach(function(tvImage){
     $("#images").append("<img src=" + tvImage + ">");
     });
@@ -33,21 +32,52 @@ IMDb.forEach(function(IMDbList){
 
 
 function emptyTVInfo(){
-    $("#tv").empty();
-    
+    $("#tvs").empty();
+    $("#platforms").empty();
+    $("#episodes").empty();
+    $("#images").empty();
+    $("#links").empty();
 }
 
 
-function addSongInfo(){
+function addTVInfo(){
     // BELOW write the code to add new items to each of the arrays.
+    var newShow = $("#tv").val();
+    var anotherPlatform = $("#platform").val();
+    var moreNumber = $("#episode").val();
+    var newImage = $("#image").val();
+    var newIMDb =$("#link").val();
+    
+    tv.push(newShow);
+    image.push(newImage);
+    platform.push(anotherPlatform);
+    episodeNumbers.push(moreNumber);
+    IMDb.push(newIMDb);
 
-
+}
+function displaySongInfo() {
+    emptyTVInfo();
+    tv.forEach(function(newShow){
+    $("#tvs").append("<p>" + newShow + "</p>");
+    });
+image.forEach(function(newImage){
+    $("#images").append("<img src=" + newImage + ">");
+    });
+platform.forEach(function(anotherPlatform){
+    $("#platforms").append("<p>" + anotherPlatform + "</p>");
+    });
+episodeNumbers.forEach(function(moreNumber){
+    $("#episodes").append("<p>" + moreNumber + "</p>");
+    });
+IMDb.forEach(function(newIMDb){
+    $("#links").append("<a href=" + newIMDb + "> Summary </a>");
+    });
 }
 
 $("#add").click(function() {
-    emptySongInfo();
-    addSongInfo();
+    emptyTVInfo();
+    addTVInfo();
     displaySongInfo();
 });
 
-displaySongInfo();
+
